@@ -1,1 +1,1 @@
-Repo for storing custom code for appboss apps
+Repo for storing custom code for your BuddyBoss App
