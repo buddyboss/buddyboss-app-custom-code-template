@@ -1,9 +1,6 @@
-import {NativeModules} from "react-native";
 import {Observable} from "rxjs";
 import React from "react";
 import {Text, TextInput, View} from "react-native";
-
-const {RNCustomCode} = NativeModules;
 
 export const applyCustomCode = externalCodeSetup => {
 	// call custom code api here
