@@ -2,7 +2,6 @@ import React, {useEffect, useRef} from "react";
 import {View, Text, Button} from "react-native";
 import {connect, useDispatch, useSelector} from "react-redux";
 import { getPodcastData } from "../api/podcastsApi";
-import PodcastItem from "../widgets/PodcastItem";
 
 const Podcasts = props => {
     const dispatch = useDispatch()

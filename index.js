@@ -1,6 +1,6 @@
 import AudioPlayer from "./components/AudioPlayer";
 import Podcasts from "./components/Podcasts";
-import Podcast from "./components/single/Podcast";
+import Podcast from "./components/Podcast";
 
 export const applyCustomCode = externalCodeSetup => {
  // Audio Player
