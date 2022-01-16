@@ -1,6 +1,6 @@
 export const getPodcastData = async (token, page=1) => {
     console.log('PODAPI:GETPODCASTDATA:', page)
-    const response = await fetch('https://aftermath.media/wp-json/wp/v2/podcast/?page='+page,
+    const response = await fetch('https://example.com/wp-json/wp/v2/podcast/?page='+page,
     {
         headers: {
             accessToken: token
