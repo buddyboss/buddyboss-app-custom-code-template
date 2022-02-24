@@ -1,4 +1,6 @@
-import { NativeModules, Platform } from 'react-native';
+import React from 'react';
+import { NativeModules, Platform, View } from 'react-native';
+import LottieLoader from './nativeComponents/LottieLoader';
 
 const LINKING_ERROR =
   `The package 'appboss-custom-code' doesn't seem to be linked. Make sure: \n\n` +
@@ -20,3 +22,22 @@ const AppbossCustomCode = NativeModules.AppbossCustomCode
 export function multiply(a: number, b: number): Promise<number> {
   return AppbossCustomCode.multiply(a, b);
 }
+
+const LoginScreen = () => {
+  return (
+    <View style={{ flex: 1, backgroundColor: 'blue' }}>
+      <LottieLoader />
+    </View>
+  );
+};
+
+LoginScreen.navigationOptions = { header: null };
+
+export const applyCustomCode = (externalCodeSetup: any) => {
+  // call custom code api here
+
+  externalCodeSetup.navigationApi.replaceScreenComponent(
+    'LoginScreen',
+    LoginScreen
+  );
+};
