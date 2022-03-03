@@ -1,4 +1,4 @@
-package com.appbosscustomcode;
+package com.buddybosscustomcode;
 
 import androidx.annotation.NonNull;
 
@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class AppbossCustomCodePackage implements ReactPackage {
+public class BuddybossCustomCodePackage implements ReactPackage {
     @NonNull
     @Override
     public List<NativeModule> createNativeModules(@NonNull ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new AppbossCustomCodeModule(reactContext));
+        modules.add(new BuddybossCustomCodeModule(reactContext));
         return modules;
     }
 
