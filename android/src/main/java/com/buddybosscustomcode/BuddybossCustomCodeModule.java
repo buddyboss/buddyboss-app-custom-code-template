@@ -9,6 +9,8 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.module.annotations.ReactModule;
 import android.content.Intent;
 import android.os.Bundle;
+import android.app.Activity;
+import android.app.Application;
 
 @ReactModule(name = BuddybossCustomCodeModule.NAME)
 public class BuddybossCustomCodeModule extends ReactContextBaseJavaModule {
@@ -28,13 +30,13 @@ public class BuddybossCustomCodeModule extends ReactContextBaseJavaModule {
     // These methods will be called in the BuddyBoss app's MainApplication.java and MainActivity.java
     // You can hook into them to initiate your native libraries or run any custom side-effects
 
-    public void onCreateApplication() {}
+    public static void onCreateApplication(Application application) {}
 
-    public void onCreateActivity(Bundle savedInstanceState) {}
+    public static void onCreateActivity(Activity activity, Bundle savedInstanceState) {}
 
-    public void onStart() {}
+    public static void onStart(Activity activity) {}
 
-    public void onNewIntent(Intent intent) {}
+    public static void onNewIntent(Activity activity, Intent intent) {}
 
     // Here you can write your own custom native modules to use in your custom repo
     // Below is an example of a simple method to multiply two numbers

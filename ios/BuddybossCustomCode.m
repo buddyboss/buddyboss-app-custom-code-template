@@ -1,5 +1,4 @@
 #import "BuddybossCustomCode.h"
-#import "Firebase.h"
 #import <React/RCTRootView.h>
 
 @implementation BuddybossCustomCode
