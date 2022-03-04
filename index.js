@@ -1,4 +1,5 @@
 import React from "react";
+import {View} from "react-native";
 import LottieView from "lottie-react-native";
 
 const TestScreen = () => {
@@ -15,6 +16,8 @@ const TestScreen = () => {
 		</View>
 	);
 };
+
+TestScreen.navigationOptions = {header: null};
 
 export const applyCustomCode = (externalCodeSetup: any) => {
 	// call custom code api here
