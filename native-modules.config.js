@@ -1,10 +1,16 @@
 module.exports = {
 	platforms: {
 		ios: {
-			dependencies: []
+			dependencies: [
+				{name: "lottie-react-native"},
+				{name: "lottie-ios", version: "3.2.3"}
+			]
 		},
 		android: {
-			dependencies: []
+			dependencies: [
+				{name: "lottie-react-native"},
+				{name: "lottie-ios", version: "3.2.3"}
+			]
 		}
 	}
 };
