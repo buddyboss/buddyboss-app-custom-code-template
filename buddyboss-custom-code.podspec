@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
   s.source_files = "ios/**/*.{h,m,mm}"
 
   s.dependency "React-Core"
-  s.dependency 'GoogleMaps', '6.0.1'
-  s.dependency 'Google-Maps-iOS-Utils', '4.0.0'
+  s.dependency "react-native-google-maps"
+  s.dependency "react-native-maps"
+  s.dependency "RNFS"
 end
