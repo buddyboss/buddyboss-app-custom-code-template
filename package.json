@@ -16,5 +16,14 @@
   "peerDependencies": {
     "react-native": "0.61.5",
     "react": "16.9.0"
+  },
+  "dependencies": {
+    "react-native-fs": "^2.19.0"
+  },
+  "nativeDependencies": {
+    "react-native-fs": "^2.19.0"
+  },
+  "podDependencies": {
+    "RNFS": "react-native-fs"
   }
 }
