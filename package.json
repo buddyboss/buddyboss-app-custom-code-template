@@ -18,12 +18,16 @@
     "react": "16.9.0"
   },
   "dependencies": {
-    "react-native-fs": "^2.19.0"
+    "react-native-fs": "^2.19.0",
+    "react-native-maps": "^0.31.0"
   },
   "nativeDependencies": {
-    "react-native-fs": "^2.19.0"
+    "react-native-fs": "^2.19.0",
+    "react-native-maps": "^0.31.0"
   },
   "podDependencies": {
-    "RNFS": "react-native-fs"
+    "RNFS": "react-native-fs",
+    "react-native-google-maps": "react-native-maps",
+    "react-native-maps": "react-native-maps"
   }
 }
