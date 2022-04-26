@@ -38,6 +38,8 @@ public class BuddybossCustomCodeModule extends ReactContextBaseJavaModule {
 
     public static void onNewIntent(Activity activity, Intent intent) {}
 
+    public static void getPackages(List<ReactPackage> packages) {}
+    
     // Here you can write your own custom native modules to use in your custom repo
     // Below is an example of a simple method to multiply two numbers
     // See https://reactnative.dev/docs/native-modules-android for more information
