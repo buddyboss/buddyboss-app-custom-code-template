@@ -1,4 +1,3 @@
-import { Alert } from "react-native";
 import { ExternalCodeSetup } from "../src/externalCode";
 import NativeModuleExampleScreen from "./NativeModuleExamples";
 
@@ -16,9 +15,7 @@ export const applyCustomCode = (externalCodeSetup:  ExternalCodeSetup) => {
 		linkObject, 
 		navService
 	) => {
-		// console.log(linkObject);
 		if(linkObject.url.match(/native_modules/)) {
-			console.log(linkObject)
 			navService.navigate("NativeModuleExampleScreen");
 			return true;
 		}

@@ -82,15 +82,18 @@ const ExampleScreen = ({navigation}) => {
     ), []);
 
     const renderMapView = useCallback(() => (
-        <MapView 
-            style={styles.contentContainer}
-            initialRegion={{
-                latitude: 37.78825,
-                longitude: -122.4324,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421,
-            }}
-        />
+        <View style={styles.contentContainer}>
+            <Text style={styles.sectionTitle}>Map View</Text>
+            <MapView 
+                style={{flex: 1}}
+                initialRegion={{
+                    latitude: 37.78825,
+                    longitude: -122.4324,
+                    latitudeDelta: 0.0922,
+                    longitudeDelta: 0.0421,
+                }}
+            />
+        </View>
     ), []);
 
     useEffect(() => {
@@ -101,9 +104,9 @@ const ExampleScreen = ({navigation}) => {
         <View style={styles.container}>
             {renderBackButton()}
             <ScrollView >
+                {renderMapView()}
                 {renderLineChart()}
                 {renderLottieView()}
-                {renderMapView()}
             </ScrollView>
         </View>
     );
@@ -133,7 +136,8 @@ const styles = {
     sectionTitle: {
         fontWeight: "600",
         color: "#222222",
-        marginLeft: 16
+        marginLeft: 16,
+        marginBottom: 16
     },
     lineChartContainer: {
         marginVertical: 20
@@ -141,6 +145,6 @@ const styles = {
     contentContainer: {
         marginVertical: 20,
         width: Dimensions.get("window").width,
-        height: 220
+        height: 300
     }
 }
