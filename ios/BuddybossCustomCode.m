@@ -1,5 +1,6 @@
 #import "BuddybossCustomCode.h"
 #import <React/RCTRootView.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 @implementation BuddybossCustomCode
 
@@ -9,7 +10,9 @@
 
 // Called inside AppDelegate.m didFinishLaunchingWithOptions method. This should be used to init most native libraries.
 + (void)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{}
+{
+   [GMSServices provideAPIKey:@"AIzaSyBITqHDwIFN0TT7SXIHfDm8lDs7hCsQQQk"];
+}
 
 // Called inside AppDelegate.m didFinishLaunchingWithOptions method when rootView is attached to window
 + (void)rootViewVisible:(RCTRootView *)rootView

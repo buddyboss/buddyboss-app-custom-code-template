@@ -1,4 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.buddybosscustomcode">
+    <application>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBITqHDwIFN0TT7SXIHfDm8lDs7hCsQQQk"/>
 
+        <!-- You will also only need to add this uses-library tag -->
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+    </application>
 </manifest>
