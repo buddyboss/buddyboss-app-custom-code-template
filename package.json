@@ -16,5 +16,19 @@
   "peerDependencies": {
     "react-native": "0.61.5",
     "react": "16.9.0"
+  },
+  "dependencies": {
+    "lottie-react-native": "^5.0.1",
+    "react-native-chart-kit": "^6.12.0",
+    "react-native-elements": "^3.4.2",
+    "react-native-svg": "^12.3.0"
+  },
+  "podDependencies": {
+    "RNSVG": "react-native-svg",
+    "lottie-react-native": "lottie-react-native"
+  },
+  "nativeDependencies": {
+    "react-native-svg": "^12.3.0",
+    "lottie-react-native": "^5.0.1"
   }
 }
