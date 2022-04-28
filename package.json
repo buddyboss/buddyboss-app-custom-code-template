@@ -18,21 +18,21 @@
     "react": "16.9.0"
   },
   "dependencies": {
-    "lottie-react-native": "^5.0.1",
+    "lottie-react-native": "^4.0.2",
     "react-native-chart-kit": "^6.12.0",
     "react-native-elements": "^3.4.2",
     "react-native-maps": "^0.31.0",
-    "react-native-svg": "^12.3.0"
+    "react-native-svg": "^12.2.0"
   },
   "podDependencies": {
-    "RNSVG": "react-native-svg",
-    "lottie-react-native": "lottie-react-native",
     "react-native-google-maps": "react-native-maps",
-    "react-native-maps": "react-native-maps"
+    "react-native-maps": "react-native-maps",
+    "RNSVG": "react-native-svg",
+    "lottie-react-native": "lottie-react-native"
   },
   "nativeDependencies": {
-    "react-native-svg": "^12.3.0",
-    "lottie-react-native": "^5.0.1",
-    "react-native-maps": "^0.31.0"
+    "react-native-maps": "^0.31.0",
+    "react-native-svg": "^12.2.0",
+    "lottie-react-native": "^4.0.2"
   }
 }
