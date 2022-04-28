@@ -18,11 +18,11 @@
     "react": "16.9.0"
   },
   "dependencies": {
-    "lottie-react-native": "^4.0.2",
-    "react-native-chart-kit": "^6.12.0",
-    "react-native-elements": "^3.4.2",
-    "react-native-maps": "^0.31.0",
-    "react-native-svg": "^12.1.0"
+    "lottie-react-native": "4.0.2",
+    "react-native-chart-kit": "6.12.0",
+    "react-native-elements": "3.4.2",
+    "react-native-maps": "0.31.0",
+    "react-native-svg": "12.1.0"
   },
   "podDependencies": {
     "react-native-google-maps": "react-native-maps",
@@ -31,8 +31,8 @@
     "RNSVG": "react-native-svg"
   },
   "nativeDependencies": {
-    "react-native-maps": "^0.31.0",
-    "lottie-react-native": "^4.0.2",
-    "react-native-svg": "^12.1.0"
+    "react-native-maps": "0.31.0",
+    "lottie-react-native": "4.0.2",
+    "react-native-svg": "12.1.0"
   }
 }
