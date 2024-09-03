@@ -19,10 +19,10 @@ def safeExtGet(prop, fallback) {
 }
 
 android {
-    compileSdkVersion safeExtGet('BuddybossCustomCode_compileSdkVersion', 29)
+    compileSdkVersion safeExtGet('BuddybossCustomCode_compileSdkVersion', 30)
     defaultConfig {
         minSdkVersion safeExtGet('BuddybossCustomCode_minSdkVersion', 16)
-        targetSdkVersion safeExtGet('BuddybossCustomCode_targetSdkVersion', 29)
+        targetSdkVersion safeExtGet('BuddybossCustomCode_targetSdkVersion', 30)
         versionCode 1
         versionName "1.0"
 
