@@ -1,5 +1,9 @@
 #import "BuddybossCustomCode.h"
 #import <React/RCTRootView.h>
+#import <RNBuddybossCustomCodeSpec/RNBuddybossCustomCodeSpec.h>
+
+@interface BuddybossCustomCode () <NativeBuddybossCustomCodeSpec>
+@end
 
 @implementation BuddybossCustomCode
 
