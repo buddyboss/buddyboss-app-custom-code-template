@@ -17,18 +17,22 @@
 
 // Here you can write your own custom native modules to use in your custom repo
 // Below is an example of a simple method to multiply two numbers
-// See https://reactnative.dev/docs/native-modules-ios for more information
+// See https://reactnative.dev/docs/the-new-architecture/pure-cxx-modules for more information
 
 RCT_EXPORT_MODULE()
 
-// This example method can be deleted
-RCT_REMAP_METHOD(multiply,
-                 multiplyWithA:(nonnull NSNumber*)a withB:(nonnull NSNumber*)b
-                 withResolver:(RCTPromiseResolveBlock)resolve
-                 withRejecter:(RCTPromiseRejectBlock)reject)
+- (void)multiply:(double)a
+               b:(double)b
+         resolve:(RCTPromiseResolveBlock)resolve
+          reject:(RCTPromiseRejectBlock)reject
 {
-  NSNumber *result = @([a floatValue] * [b floatValue]);
-  resolve(result);
+    resolve(@(a * b));
+}
+
+- (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
+    (const facebook::react::ObjCTurboModule::InitParams &)params
+{
+    return std::make_shared<facebook::react::NativeBuddybossCustomCodeSpecJSI>(params);
 }
 
 @end

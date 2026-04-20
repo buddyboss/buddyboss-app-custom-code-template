@@ -3,29 +3,30 @@ buildscript {
         repositories {
             google()
             mavenCentral()
-            jcenter()
         }
 
         dependencies {
-            classpath 'com.android.tools.build:gradle:3.5.3'
+            classpath "com.android.tools.build:gradle:8.7.2"
         }
     }
 }
 
-apply plugin: 'com.android.library'
+apply plugin: "com.android.library"
+apply plugin: "com.facebook.react"
 
 def safeExtGet(prop, fallback) {
     rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
 }
 
 android {
-    compileSdkVersion safeExtGet('BuddybossCustomCode_compileSdkVersion', 29)
+    namespace "com.buddybosscustomcode"
+    compileSdkVersion safeExtGet("BuddybossCustomCode_compileSdkVersion", 36)
+
     defaultConfig {
-        minSdkVersion safeExtGet('BuddybossCustomCode_minSdkVersion', 16)
-        targetSdkVersion safeExtGet('BuddybossCustomCode_targetSdkVersion', 29)
+        minSdkVersion safeExtGet("BuddybossCustomCode_minSdkVersion", 26)
+        targetSdkVersion safeExtGet("BuddybossCustomCode_targetSdkVersion", 36)
         versionCode 1
         versionName "1.0"
-
     }
 
     buildTypes {
@@ -33,27 +34,22 @@ android {
             minifyEnabled false
         }
     }
+
     lintOptions {
-        disable 'GradleCompatible'
+        disable "GradleCompatible"
     }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 }
 
 repositories {
-    mavenLocal()
-    maven {
-        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-        url("$rootDir/../node_modules/react-native/android")
-    }
-    google()
     mavenCentral()
-    jcenter()
+    google()
 }
 
 dependencies {
-    //noinspection GradleDynamicVersion
-    implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation "com.facebook.react:react-android"
 }

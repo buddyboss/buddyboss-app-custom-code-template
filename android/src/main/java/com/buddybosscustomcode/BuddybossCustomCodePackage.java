@@ -2,27 +2,40 @@ package com.buddybosscustomcode;
 
 import androidx.annotation.NonNull;
 
-import com.facebook.react.ReactPackage;
+import com.facebook.react.BaseReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.uimanager.ViewManager;
+import com.facebook.react.module.model.ReactModuleInfo;
+import com.facebook.react.module.model.ReactModuleInfoProvider;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
-public class BuddybossCustomCodePackage implements ReactPackage {
-    @NonNull
+public class BuddybossCustomCodePackage extends BaseReactPackage {
     @Override
-    public List<NativeModule> createNativeModules(@NonNull ReactApplicationContext reactContext) {
-        List<NativeModule> modules = new ArrayList<>();
-        modules.add(new BuddybossCustomCodeModule(reactContext));
-        return modules;
+    public NativeModule getModule(@NonNull String name, @NonNull ReactApplicationContext reactContext) {
+        if (name.equals(BuddybossCustomCodeModuleImpl.NAME)) {
+            return new BuddybossCustomCodeModule(reactContext);
+        }
+        return null;
     }
 
-    @NonNull
     @Override
-    public List<ViewManager> createViewManagers(@NonNull ReactApplicationContext reactContext) {
-        return Collections.emptyList();
+    public ReactModuleInfoProvider getReactModuleInfoProvider() {
+        return () -> {
+            Map<String, ReactModuleInfo> map = new HashMap<>();
+            map.put(
+                BuddybossCustomCodeModuleImpl.NAME,
+                new ReactModuleInfo(
+                    BuddybossCustomCodeModuleImpl.NAME, // name
+                    BuddybossCustomCodeModuleImpl.NAME, // className
+                    false, // canOverrideExistingModule
+                    false, // needsEagerInit
+                    false, // isCxxModule
+                    true // isTurboModule
+                )
+            );
+            return map;
+        };
     }
 }
