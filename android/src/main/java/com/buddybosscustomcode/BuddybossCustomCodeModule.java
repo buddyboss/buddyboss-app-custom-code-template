@@ -16,7 +16,7 @@ import java.util.List;
 
 @ReactModule(name = BuddybossCustomCodeModule.NAME)
 public class BuddybossCustomCodeModule extends NativeBuddybossCustomCodeSpec {
-    public static final String NAME = BuddybossCustomCodeModuleImpl.NAME;
+    public static final String NAME = "BuddybossCustomCode";
 
     public BuddybossCustomCodeModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -28,29 +28,30 @@ public class BuddybossCustomCodeModule extends NativeBuddybossCustomCodeSpec {
         return NAME;
     }
 
-    // Lifecycle methods (DO NOT DELETE)
-    public static void onCreateApplication(Application application) {
-        BuddybossCustomCodeModuleImpl.onCreateApplication(application);
-    }
+    // ---------------------------------------------------------------------
+    // Lifecycle hooks (DO NOT DELETE)
+    // Called from the BuddyBoss app's MainApplication.java / MainActivity.java.
+    // Use them to initialise native libraries or run custom side-effects.
+    // ---------------------------------------------------------------------
 
-    public static void onCreateActivity(Activity activity, Bundle savedInstanceState) {
-        BuddybossCustomCodeModuleImpl.onCreateActivity(activity, savedInstanceState);
-    }
+    public static void onCreateApplication(Application application) {}
 
-    public static void onStart(Activity activity) {
-        BuddybossCustomCodeModuleImpl.onStart(activity);
-    }
+    public static void onCreateActivity(Activity activity, Bundle savedInstanceState) {}
 
-    public static void onNewIntent(Activity activity, Intent intent) {
-        BuddybossCustomCodeModuleImpl.onNewIntent(activity, intent);
-    }
+    public static void onStart(Activity activity) {}
 
-    public static void getPackages(List<ReactPackage> packages) {
-        BuddybossCustomCodeModuleImpl.getPackages(packages);
-    }
+    public static void onNewIntent(Activity activity, Intent intent) {}
+
+    public static void getPackages(List<ReactPackage> packages) {}
+
+    // ---------------------------------------------------------------------
+    // Native methods exposed to JS.
+    // Add a new method here when you add one to src/NativeBuddybossCustomCode.ts.
+    // Signatures must match the TS spec (codegen will fail the build otherwise).
+    // ---------------------------------------------------------------------
 
     @Override
     public void multiply(double a, double b, Promise promise) {
-        BuddybossCustomCodeModuleImpl.multiply(a, b, promise);
+        promise.resolve(a * b);
     }
 }

@@ -14,7 +14,7 @@ import java.util.Map;
 public class BuddybossCustomCodePackage extends BaseReactPackage {
     @Override
     public NativeModule getModule(@NonNull String name, @NonNull ReactApplicationContext reactContext) {
-        if (name.equals(BuddybossCustomCodeModuleImpl.NAME)) {
+        if (name.equals(BuddybossCustomCodeModule.NAME)) {
             return new BuddybossCustomCodeModule(reactContext);
         }
         return null;
@@ -25,10 +25,10 @@ public class BuddybossCustomCodePackage extends BaseReactPackage {
         return () -> {
             Map<String, ReactModuleInfo> map = new HashMap<>();
             map.put(
-                BuddybossCustomCodeModuleImpl.NAME,
+                BuddybossCustomCodeModule.NAME,
                 new ReactModuleInfo(
-                    BuddybossCustomCodeModuleImpl.NAME, // name
-                    BuddybossCustomCodeModuleImpl.NAME, // className
+                    BuddybossCustomCodeModule.NAME, // name
+                    BuddybossCustomCodeModule.NAME, // className
                     false, // canOverrideExistingModule
                     false, // needsEagerInit
                     false, // isCxxModule
