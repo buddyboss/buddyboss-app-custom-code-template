@@ -19,19 +19,14 @@
 + (void)rootViewVisible:(RCTRootView *)rootView
 {}
 
-// Here you can write your own custom native modules to use in your custom repo
-// Below is an example of a simple method to multiply two numbers
-// See https://reactnative.dev/docs/the-new-architecture/pure-cxx-modules for more information
-
 RCT_EXPORT_MODULE()
 
-- (void)multiply:(double)a
-               b:(double)b
-         resolve:(RCTPromiseResolveBlock)resolve
-          reject:(RCTPromiseRejectBlock)reject
-{
-    resolve(@(a * b));
-}
+// ---------------------------------------------------------------------
+// Native methods exposed to JS.
+// Signatures must match the TS spec (codegen will fail the build otherwise).
+// ---------------------------------------------------------------------
+
+// Add your native methods here.
 
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
     (const facebook::react::ObjCTurboModule::InitParams &)params

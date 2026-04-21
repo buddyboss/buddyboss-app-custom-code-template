@@ -33,7 +33,7 @@ package.json                        # Contains codegenConfig
 
 Signatures are enforced by codegen across all three files — if they don't match, the build fails.
 
-Worked example: add `divide(a, b)` that returns `a / b` (or rejects on divide-by-zero).
+Worked example: add `multiply(a, b)` that returns `a * b`.
 
 ### 1. Declare the method in the TS spec
 
@@ -45,7 +45,6 @@ import {TurboModuleRegistry} from 'react-native';
 
 export interface Spec extends TurboModule {
   multiply(a: number, b: number): Promise<number>;
-  divide(a: number, b: number): Promise<number>;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>('BuddybossCustomCode');
@@ -57,12 +56,8 @@ Edit `android/src/main/java/com/buddybosscustomcode/BuddybossCustomCodeModule.ja
 
 ```java
 @Override
-public void divide(double a, double b, Promise promise) {
-    if (b == 0) {
-        promise.reject("E_DIV_ZERO", "Cannot divide by zero");
-        return;
-    }
-    promise.resolve(a / b);
+public void multiply(double a, double b, Promise promise) {
+    promise.resolve(a * b);
 }
 ```
 
@@ -73,16 +68,12 @@ Codegen maps JS `number` → Java `double` and `Promise<number>` → a trailing 
 Edit `ios/BuddybossCustomCode.mm`:
 
 ```objc
-- (void)divide:(double)a
-             b:(double)b
-       resolve:(RCTPromiseResolveBlock)resolve
-        reject:(RCTPromiseRejectBlock)reject
+- (void)multiply:(double)a
+               b:(double)b
+         resolve:(RCTPromiseResolveBlock)resolve
+          reject:(RCTPromiseRejectBlock)reject
 {
-    if (b == 0) {
-        reject(@"E_DIV_ZERO", @"Cannot divide by zero", nil);
-        return;
-    }
-    resolve(@(a / b));
+    resolve(@(a * b));
 }
 ```
 
@@ -91,10 +82,14 @@ Edit `ios/BuddybossCustomCode.mm`:
 ```js
 import BuddybossCustomCode from 'buddyboss-custom-code/src/NativeBuddybossCustomCode';
 
-const result = await BuddybossCustomCode.divide(10, 2); // 5
+const result = await BuddybossCustomCode.multiply(10, 2); // 20
 ```
 
 That's it. Rebuild the host app — codegen regenerates spec classes on every build, so no manual codegen step.
+
+> ### ⚠️ **A FULL APP REBUILD IS REQUIRED BEFORE USING A NATIVE METHOD**
+>
+> After modifying a native method, a full rebuild is required. Failing to do so will cause the app to crash at runtime when the native code is called
 
 ---
 

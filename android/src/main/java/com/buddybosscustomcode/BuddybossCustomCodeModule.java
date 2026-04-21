@@ -46,12 +46,8 @@ public class BuddybossCustomCodeModule extends NativeBuddybossCustomCodeSpec {
 
     // ---------------------------------------------------------------------
     // Native methods exposed to JS.
-    // Add a new method here when you add one to src/NativeBuddybossCustomCode.ts.
     // Signatures must match the TS spec (codegen will fail the build otherwise).
     // ---------------------------------------------------------------------
 
-    @Override
-    public void multiply(double a, double b, Promise promise) {
-        promise.resolve(a * b);
-    }
+    // Add your native methods here.
 }
