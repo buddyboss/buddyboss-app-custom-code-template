@@ -225,8 +225,10 @@ For nullable types use `?` in the spec (e.g. `name?: string`) — the generated 
 
 **iOS** (in `BuddybossCustomCode.mm`):
 
-- `+ application:didFinishLaunchingWithOptions:withBridge:` — called from host `AppDelegate`
-- `+ rootViewVisible:` — called after the RN root view is attached to the window
+- `+ application:didFinishLaunchingWithOptions:` — called from host `AppDelegate`
+- `+ rootViewVisible:(UIView *)` — called after the RN root view is attached to the window
+
+> **Upgrading from 1.x:** the `withBridge:` parameter was removed and `rootViewVisible:` now takes a `UIView *` instead of `RCTRootView *`. Both were legacy-architecture types: the bridge was always `nil`, and on the New Architecture the root view is not an `RCTRootView`, so `rootViewVisible:` was never called. Update the two method signatures in your `BuddybossCustomCode.mm` to match.
 
 ---
 

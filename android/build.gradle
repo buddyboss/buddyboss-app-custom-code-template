@@ -6,7 +6,7 @@ buildscript {
         }
 
         dependencies {
-            classpath "com.android.tools.build:gradle:8.7.2"
+            classpath "com.android.tools.build:gradle:9.2.1"
         }
     }
 }
@@ -35,7 +35,7 @@ android {
         }
     }
 
-    lintOptions {
+    lint {
         disable "GradleCompatible"
     }
 
