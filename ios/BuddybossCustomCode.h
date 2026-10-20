@@ -1,9 +1,9 @@
+#import <UIKit/UIKit.h>
 #import <React/RCTBridgeModule.h>
-#import <React/RCTRootView.h>
 
 @interface BuddybossCustomCode : NSObject
 
-+ (void)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions withBridge:(RCTBridge *)bridge;
-+ (void)rootViewVisible:(RCTRootView *)rootView;
++ (void)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
++ (void)rootViewVisible:(UIView *)rootView;
 
 @end

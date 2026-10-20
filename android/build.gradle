@@ -6,7 +6,7 @@ buildscript {
         }
 
         dependencies {
-            classpath "com.android.tools.build:gradle:8.7.2"
+            classpath "com.android.tools.build:gradle:9.2.1"
         }
     }
 }
@@ -19,29 +19,27 @@ def safeExtGet(prop, fallback) {
 }
 
 android {
-    namespace "com.buddybosscustomcode"
-    compileSdkVersion safeExtGet("BuddybossCustomCode_compileSdkVersion", 36)
+    namespace = "com.buddybosscustomcode"
+    compileSdk = safeExtGet("BuddybossCustomCode_compileSdkVersion", 36)
 
     defaultConfig {
-        minSdkVersion safeExtGet("BuddybossCustomCode_minSdkVersion", 26)
-        targetSdkVersion safeExtGet("BuddybossCustomCode_targetSdkVersion", 36)
-        versionCode 1
-        versionName "1.0"
+        minSdk = safeExtGet("BuddybossCustomCode_minSdkVersion", 26)
+        targetSdk = safeExtGet("BuddybossCustomCode_targetSdkVersion", 36)
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled = false
         }
     }
 
-    lintOptions {
-        disable "GradleCompatible"
+    lint {
+        disable.add("GradleCompatible")
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
