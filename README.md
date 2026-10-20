@@ -235,3 +235,29 @@ For nullable types use `?` in the spec (e.g. `name?: string`) — the generated 
 ## JS-only customisations
 
 For pure-JS extensions (custom reducers, epic wrappers, screen replacements, navigation callbacks, global styles, etc.), edit `index.js`. See `example.js` for a reference implementation that exercises most of the `externalCodeSetup` API.
+
+---
+
+## Releasing
+
+The app installs this template by version, from git tags:
+
+```json
+"buddyboss-custom-code": "github:buddyboss/buddyboss-app-custom-code-template#semver:^2.0.0"
+```
+
+npm resolves the highest tag matching the range, and the app's `package-lock.json` pins its commit.
+
+1. Merge the change into `master`.
+2. Bump `version` in `package.json` (semver: breaking change → major, new hook or feature → minor, fix → patch) and commit it on `master`.
+3. Tag that commit with the same version, prefixed with `v`, and push the tag:
+   ```sh
+   git tag v2.1.0
+   git push origin v2.1.0
+   ```
+4. Create a GitHub Release from the tag with notes on what changed (and any steps forks must take).
+5. In the app, run `npm install buddyboss-custom-code@github:buddyboss/buddyboss-app-custom-code-template#semver:^2.1.0` (or just `npm install` for a release inside the current range) and commit the lockfile.
+
+Tags must be valid semver (`v2.1.0`, not `2.1` or `2.1.0_1`), and `package.json` `version` must match the tag. The `1.x` tags predate the New Architecture and are not compatible with the app.
+
+**Custom code forks:** set `custom_code.ref` in the app's build config to one of your release tags rather than a branch, so every build of a given app version uses the same code.
